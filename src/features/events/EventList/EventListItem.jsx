@@ -13,7 +13,7 @@ class EventListItem extends Component {
                           <Item.Content>
                             <Item.Header as="a">{this.props.event.title}</Item.Header>
                             <Item.Description>
-                              Hosted by <a>{this.props.event.hostedBy}</a>
+                              Hosted by {this.props.event.hostedBy}
                             </Item.Description>
                           </Item.Content>
                         </Item>
@@ -27,7 +27,7 @@ class EventListItem extends Component {
                     </Segment>
                     <Segment secondary>
                       <List horizontal>
-            {this.props.event.attendees.map((attendee)=>(
+            {this.props.event.attendees && this.props.event.attendees.map((attendee)=>(
 
                    <EventListAttendee key={attendee.id} attendee={attendee}/>
                     ))}
