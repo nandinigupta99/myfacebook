@@ -11,8 +11,25 @@ state={
 
 }
 
+componentDidMount()
+{
+if(this.props.selectedEvent !== null){
+  this.setState({
+    ...this.props.selectedEvent
+  })
+}
+
+}
+
+
 handleFormSubmit=(evt)=>{
- this.props.createEvent(this.state)
+  if(this.state.id){
+    this.props.updateEvent(this.state);
+  }
+  else{
+    this.props.createEvent(this.state)
+  }
+ 
 }
 
 handleInputChange=(evt)=>{
@@ -74,7 +91,7 @@ this.setState({
                      <Button positive type="submit">
                        Submit
                      </Button>
-                     <Button onClick={this.props.cancelFromOpen} type="button">Cancel</Button>
+                     <Button onClick={this.props.cancelFormOpen} type="button">Cancel</Button>
                    </Form>
                  </Segment>
         )
